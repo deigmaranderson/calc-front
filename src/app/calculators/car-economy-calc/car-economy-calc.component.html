@@ -1,0 +1,83 @@
+<div class="card" no-validate>
+  <div class="card-header bg-white d-flex flex-column justify-content-center border-bottom-0">
+    <div class="bg-white d-flex flex-column justify-content-center">
+      <img src="#" class="" />
+    </div>
+    <div class="bg-white d-flex flex-column justify-content-center">
+      <p>Simulador da deseconomia do carro próprio</p>
+    </div>
+  </div>
+  <div class="card-body pt-0">
+    <form [formGroup]="formCarEconomy">
+      <div class="form-group">
+        <label for="exampleInputtext1">Em qual cidade/região metropolitana você realiza seus deslocamentos?</label>
+        <br>
+        <select *ngIf="cityField" name="city" formControlName="city" id="city">
+          <option value=""></option>
+          <option *ngFor="let city of cityField" [value]="city.id">{{city.description}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="drivingDays">Quantos dias por semana você se desloca com automóvel particular?</label>
+        <input type="number" class="form-control" id="drivingDays" placeholder="" name="drivingDays" formControlName="drivingDays" min="0">
+      </div>
+
+      <div class="form-group">
+        <label for="drivingDistance">Quantos km tem o seu trajeto principal?</label>
+        <input type="number" class="form-control" id="drivingDistance" aria-describedby="cityHelp" placeholder="" name="drivingDistance" formControlName="drivingDistance" min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="travelsPerDay">Quantas viagens você faz nesse trajeto por dia?</label>
+        <input type="number" min="1" class="form-control" id="travelsPerDay" aria-describedby="cityHelp" placeholder="" name="travelsPerDay" formControlName="travelsPerDay">
+      </div>
+
+      <div class="form-group">
+        <label for="fuelType">Qual é o seu combustível?</label>
+        <br>
+        <select *ngIf="fuelField" name="fuelType" formControlName="fuelType" id="fuelType">
+          <option value=""></option>
+          <option *ngFor="let fuel of fuelField" [value]="fuel.id">{{fuel.description}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="fuelConsumption">Consumo médio do seu carro (Km/ L ou Km/ m3)</label>
+        <input type="number" min="1" class="form-control" id="fuelConsumption" aria-describedby="fuelConsumptionHelp" placeholder="" name="fuelConsumption" formControlName="fuelConsumption">
+      </div>
+
+      <div class="form-group">
+        <label for="fuelCost">Preço do combustível (R$/ L ou R$/ m3)</label>
+        <input type="number" min="1" class="form-control" id="fuelCost" aria-describedby="cityHelp" placeholder="" name="fuelCost" formControlName="fuelCost">
+      </div>
+
+      <div class="form-group">
+        <label for="carCost">Qual o valor aproximado do seu carro?</label>
+        <input type="number" min="1" class="form-control" id="carCost" aria-describedby="cityHelp" placeholder="" name="carCost" formControlName="carCost">
+      </div>
+
+      <div class="form-group">
+        <label for="insuranceCost">Qual o valor anual do seu seguro?</label>
+        <input type="number" min="1" class="form-control" id="insuranceCost" aria-describedby="cityHelp" placeholder="" name="insuranceCost" formControlName="insuranceCost">
+      </div>
+
+      <div class="form-group">
+        <label for="parkingCost">Quanto você gasta por mês de estacionamento?</label>
+        <input type="number" min="1" class="form-control" id="parkingCost" aria-describedby="cityHelp" placeholder="" name="parkingCost" formControlName="parkingCost">
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" value="true" (click)="displayIntegrationQuestion()" #publicTransportIntegration class="form-check-input" id="publicTransportIntegration" name="publicTransportIntegration" formControlName="publicTransportIntegration" >
+        <label class="form-check-label" for="publicTransportIntegration">Para trocar o carro próprio, você faria integração com transporte coletivo no seu trajeto?</label>
+      </div>
+
+      <div class="form-group" *ngIf="displayIntegrationQuestions">
+        <label for="divingDistanceIntegration">qual a distância de carro teria que percorrer?</label>
+        <input type="number" class="form-control" id="divingDistanceIntegration" aria-describedby="cityHelp" placeholder="" name="divingDistanceIntegration" formControlName="divingDistanceIntegration" min="1">
+      </div>
+      <button type="button" class="btn btn-calc" (click)="calc()">Calcular</button>
+    </form>
+  </div>
+</div>
+
+<app-compare [costOurCar]="costOurCar" [costPop]="costPop"></app-compare>

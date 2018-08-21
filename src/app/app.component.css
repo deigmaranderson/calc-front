@@ -1,0 +1,109 @@
+.site-footer__social div {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    text-decoration: none;
+}
+
+.site-footer__social ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 0px;
+    list-style: none;
+}
+
+.site-footer__social ul div:first-child {
+    margin: 0;
+}
+
+.site-footer__social .social.youtube {
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/icons/social__youtube-rounded--white.svg?1527750196);
+}
+
+.site-footer__social .social.facebook {
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/icons/social__facebook-rounded--white.svg?1527750196);
+}
+
+.site-footer__social .social.twitter {
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/icons/social__twitter-rounded--white.svg?1527750196);
+}
+
+.site-footer__social .social.linkedin {
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/icons/social__linkedin-rounded--white.svg?1527750196);
+}
+
+.site-footer__social .social.instagram {
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/icons/social__instagram-rounded--white.svg?1527750196);
+}
+
+.site-footer__social-box {
+    display: inline-block;
+    text-align: left;
+}
+
+.site-footer__social .social {
+    display: block;
+    width: 35px;
+    height: 35px;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+.site-footer {
+    background: #4a4b4a;
+    color: #fff;
+    font-size: .75rem;
+}
+
+.site-footer__logo {
+    display: block;
+    text-indent: -9999px;
+    width: 30px;
+    height: 30px;
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/logo-99--black-yellow.svg?1527750196);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    margin: 0 auto;
+}
+
+.site-footer__top {
+    background: #fd0;
+    background: -moz-linear-gradient(left,#fd0 0,#ff8200 100%);
+    background: -webkit-gradient(left top,right top,color-stop(0%,#fd0),color-stop(100%,#ff8200));
+    background: -webkit-linear-gradient(left,#fd0 0,#ff8200 100%);
+    background: -o-linear-gradient(left,#fd0 0,#ff8200 100%);
+    background: -ms-linear-gradient(left,#fd0 0,#ff8200 100%);
+    background: linear-gradient(to right,#fd0 0,#ff8200 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffdd00',endColorstr='#ff8200',GradientType=1);
+    height: 6px;
+}
+
+.site-header__logo {
+    display: block;
+    text-indent: -9999px;
+    width: 45px;
+    height: 45px;
+    background-image: url(//99app.com/wp-content/themes/app991_1/assets/css/../img/logo-99--black-yellow.svg?1527750196);
+     background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5000;
+}
+
+header {
+    background: linear-gradient(to right,#fd0 0,#ff8200 100%);
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn-calc {
+    background: #fd0;
+    border: none;
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 25px;
+    color: black;
+}

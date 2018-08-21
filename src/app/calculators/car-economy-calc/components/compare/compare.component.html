@@ -1,0 +1,53 @@
+<!-- <div class="d-flex">
+  <div class="card w-50" style="width: 18rem;">
+    <div class="card-header">
+      Cálculo gasto de carro próprio
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Custo de manutenção {{costOurCar?.maintenceCost}}</li>
+      <li class="list-group-item">Custo combustível {{costOurCar?.fuelCost}}</li>
+      <li class="list-group-item">Custo estacionamento {{costOurCar?.parkingCost}}</li>
+      <li class="list-group-item">Custo lavagem {{costOurCar?.washCost}}</li>
+      <li class="list-group-item">Custo fixo {{costOurCar?.fixedCost}}</li>
+      <li class="list-group-item">total {{costOurCar?.total}}</li>
+    </ul>
+  </div>
+  <div class="card w-50" style="width: 18rem;">
+    <div class="card-header">
+      Cálculo gasto de 99POP
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Custo por km sem integração por corrida {{costPop?.distanceWithoutIntegratCost}}</li>
+        <li class="list-group-item">Custo por minuto sem integração por corrida {{costPop?.distanceWithoutIntegratMinuteCost}}</li>
+        <li class="list-group-item">Custo por km com integração por corrida {{costPop?.distanceWithIntegratCost}}</li>
+        <li class="list-group-item">Custo por minuto com integração por corrida {{costPop?.distanceWithIntegratMinuteCost}}</li>
+        <li class="list-group-item">Custo por corrida com integração {{costPop?.travelWithoutIntegratCost}}</li>
+        <li class="list-group-item">Custo por corrida sem integração {{costPop?.travelWithIntegratCost}}</li>
+        <li class="list-group-item">Custo total das corridas POP no ano {{costPop?.totalCostYear}}</li>
+      <li class="list-group-item">Custo total com transporte coletivo {{costPop?.totalCostPublicTransp}}</li>
+      <li class="list-group-item">total {{costPop?.total}}</li>
+    </ul>
+  </div>
+</div> -->
+
+<div class="display-result yellow d-flex">
+    <div class="w-100 bg-green" style="width: 18rem;">
+        <div class="text-center">
+            Gasto com seu carro próprio: R${{costOurCar?.total}} anualmente
+        </div>
+      </div>
+</div>
+<div class="display-result yellow d-flex">
+    <div class="w-100 bg-green" style="width: 18rem;">
+        <div class="text-center">
+            Gasto caso substituísse por 99POP: R${{costPop?.total}} anualmente
+        </div>
+      </div>
+</div>
+<div class="display-result d-flex green">
+    <div class="w-100 bg-green" style="width: 18rem;">
+        <div class="text-center">
+            Economia anual de R${{costOurCar?.total - costPop?.total}}
+        </div>
+      </div>
+</div>

@@ -1,0 +1,16 @@
+.display-result {
+    height: 40px;
+    margin-top: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.yellow {
+    background: #fd0;
+}
+
+.green {
+    background: greenyellow;
+}
