@@ -4,7 +4,7 @@ import { CarEconomyCalcComponent } from './calculators/car-economy-calc/car-econ
 import { FuelEconomyCalcComponent } from './calculators/fuel-economy-calc/fuel-economy-calc.component';
 
 export const routes: Routes = [
-    { path: 'calculators', loadChildren: 'calculators/calculators.module#CalculatorsModule' },
+    { path: 'calculators', loadChildren: './calculators/calculators.module#CalculatorsModule' },
 ];
 
 @NgModule({
