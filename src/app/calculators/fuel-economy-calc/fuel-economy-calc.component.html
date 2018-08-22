@@ -1,47 +1,167 @@
 <div class="card" no-validate>
-    <div class="card-header bg-white d-flex flex-column justify-content-center border-bottom-0">
-      <div class="bg-white d-flex flex-column justify-content-center">
-        <img src="#" class="" />
-      </div>
-      <div class="bg-white d-flex flex-column justify-content-center text-center">
-        <p>Simulador da ganhos mensais de motoristas 99POP</p>
-      </div>
+  <div class="card-header bg-white d-flex flex-column justify-content-center border-bottom-0">
+    <div class="bg-white d-flex flex-column justify-content-center">
+      <img src="#" class="" />
     </div>
-    <div class="card-body d-flex justify-content-center">
-      <form [formGroup]="formFuelEconomy" class="w-75 d-flex justify-content-center flex-column align-self-center">
-        <div class="form-group w-100">
-          <label for="exampleInputtext1">Em qual cidade/região metropolitana você realiza seus deslocamentos?</label>
-          <br>
-          <select class="w-100" *ngIf="cityField" name="city" formControlName="city" id="city">
-            <option value=""></option>
-            <option *ngFor="let city of cityField" [value]="city.id">{{city.description}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="drivingDays">Quantos dias por semana você se desloca com automóvel particular?</label>
-          <input type="number" class="form-control" id="drivingDays" placeholder="" name="drivingDays" formControlName="drivingDays" min="0">
-        </div>
-  
-        <div class="form-group">
-          <label for="workHours">Quantas horas por dia você pretende trabalhar?</label>
-          <input type="number" class="form-control" id="workHours" aria-describedby="cityHelp" placeholder="" name="workHours" formControlName="workHours" min="1">
-        </div>
-  
-        <div class="form-group">
-          <label for="fuelType">Qual é o seu combustível?</label>
-          <br>
-          <select *ngIf="fuelField" name="fuelType" formControlName="fuelType" id="fuelType">
-            <option value=""></option>
-            <option *ngFor="let fuel of fuelField" [value]="fuel.id">{{fuel.description}}</option>
-          </select>
-        </div>
-  
-        <div class="form-group">
-          <label for="fuelConsumption">Consumo médio do seu carro (Km/ L ou Km/ m3)</label>
-          <input type="number" min="1" class="form-control" id="fuelConsumption" aria-describedby="fuelConsumptionHelp" placeholder="" name="fuelConsumption" formControlName="fuelConsumption">
-        </div>
-  
-        <button type="button" class="btn btn-calc" (click)="calc()">Calcular</button>
-      </form>
+    <div class="bg-white d-flex flex-column justify-content-center text-center">
+      <p>Simulador da ganhos mensais de motoristas 99POP</p>
     </div>
   </div>
+  <div class="card-body d-flex justify-content-center">
+    <form [formGroup]="formFuelEconomy" class="w-75 d-flex justify-content-center flex-column align-self-center">
+      <div class="form-group w-100">
+        <label for="exampleInputtext1">Em qual cidade/região metropolitana você realiza seus deslocamentos?</label>
+        <br>
+        <select class="w-100" *ngIf="cityField" name="city" formControlName="city" id="city">
+          <option value=""></option>
+          <option *ngFor="let city of cityField" [value]="city.id">{{city.description}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="drivingDays">Quantos dias na semana você pretende trabalhar?</label>
+        <select class="w-100" name="drivingDays" formControlName="drivingDays" id="drivingDays">
+          <option value=""></option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="workHours">Quantas horas por dia você pretende trabalhar?</label>
+        <input type="number" class="form-control" id="workHours" aria-describedby="cityHelp" placeholder="" name="workHours" formControlName="workHours"
+          min="1">
+      </div>
+
+      <div class="form-group">
+        <label for="fuelType">Qual é o seu combustível?</label>
+        <br>
+        <select *ngIf="fuelField" name="fuelType" formControlName="fuelType" id="fuelType">
+          <option value=""></option>
+          <option *ngFor="let fuel of fuelField" [value]="fuel.id">{{fuel.description}}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="fuelConsumption">Consumo médio do seu carro (Km/ L ou Km/ m3)</label>
+        <input type="number" min="1" class="form-control" id="fuelConsumption" aria-describedby="fuelConsumptionHelp" placeholder=""
+          name="fuelConsumption" formControlName="fuelConsumption">
+      </div>
+
+      <button type="button" class="btn btn-calc" (click)="calc()">Calcular</button>
+    </form>
+  </div>
+</div>
+
+<table class="table text-center mb-3">
+  <thead>
+    <tr>
+      <th class="w-50"  style="border-top: none;">comparativo</th>
+      <th class="yellow"  style="border-top: none;">99POP</th>
+      <th style="background:black; color: white; border-top: none;">Uber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Ganhos no mês (Sem taxas):</th>
+      <td>{{popValue?.mounthWithoutTax | number:'3.1'}}</td>
+      <td>{{uberValue?.mounthWithoutTax | number:'3.1'}}</td>
+    </tr>
+    <tr>
+      <th>Quanto você paga de TAXA:</th>
+      <td>{{popValue?.tax | number:'3.1'}}</td>
+      <td>{{uberValue?.tax | number:'3.1'}}</td>
+    </tr>
+    <tr>
+      <th>Despesas com combustível</th>
+      <td>{{popValue?.fuelCost | number:'3.1'}}</td>
+      <td>{{uberValue?.fuelCost | number:'3.1'}}</td>
+    </tr>
+    <tr>
+      <th>líquido no final do mês:</th>
+      <td>{{popValue?.finalGain | number:'3.1'}}</td>
+      <td>{{uberValue?.finalGain | number:'3.1'}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="display-result yellow d-flex">
+  <div class="w-100 bg-green" style="width: 18rem;">
+    <div class="text-left pl-2">
+      No mês, você ganha R$ {{popValue?.finalGain - uberValue?.finalGain | number:'3.1'}} A MAIS na 99, trabalhando o mesmo tempo!
+    </div>
+  </div>
+</div>
+
+<div class="display-result yellow d-flex">
+  <div class="w-100 bg-green" style="width: 18rem;">
+    <div class="text-left pl-2">
+      No ano, você ganha R$ {{popValue?.gainYear - uberValue?.gainYear | number:'3.1'}} A MAIS na 99, trabalhando o mesmo tempo!
+    </div>
+  </div>
+</div>
+
+<div class="display-result yellow d-flex">
+  <div class="w-100 bg-green" style="width: 18rem;">
+    <div class="text-left pl-2">
+      O quê dá pra fazer com R$ {{popValue?.gainYear - uberValue?.gainYear | number:'3.1'}} a mais no ano? Férias, etc (pensar em algumas coisas)
+    </div>
+  </div>
+</div>
+
+<div class="display-result yellow d-flex">
+  <div class="w-100 bg-green" style="width: 18rem;">
+    <div class="text-left pl-2">
+        Se você trabalhar 1 hora a mais por dia (ou 1 dia mais na semana), você vai ganhar R$ {{popValue?.workMoreHourGain - popValue?.finalGain | number:'3.1'}} reais líquidos a mais no final do mês
+    </div>
+  </div>
+</div>
+
+<div class="display-result yellow d-flex">
+    <div class="w-100 bg-green" style="width: 18rem;">
+      <div class="text-left pl-2">
+          Se você instalar o KIT gás no seu carro, você iria ganhar R$ {{popValue?.GNVKitGain | number:'3.1'}} reais líquidos a mais no final do mês
+      </div>
+    </div>
+  </div>
+
+<div class="alert alert-light pt-0 pb-0 mb-0" role="alert">
+  Notas:
+</div>
+
+<div class="alert alert-light pt-0 pb-0 mb-0" role="alert">
+  Valores referentes a viagens feitas em:
+</div>
+
+<div class="alert alert-light pt-0 pb-0 mb-0" role="alert">
+  Custos com manutenção não estão considerados nas despesas
+</div>
+
+<div class="alert alert-light pt-0 pb-0 mb-0" role="alert">
+  Tarifas dinâmicas não são consideradas para o cálculo dos ganhos desse simulador
+</div>
+
+<div class="alert alert-light pt-0 pb-0 mb-0" role="alert">
+  Os preços dos combustíveis foram definidos conforme o valor médio da cidade selecionada, de acordo com a tabela:
+</div>
+
+<table class="table text-center">
+  <thead>
+    <tr>
+      <th>Gasolina</th>
+      <th>Álcool</th>
+      <th>GNV</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th> R$/{{popParam?.gasolinePrize}} L</th>
+      <td> R$/{{popParam?.alcoholPrize}} L</td>
+      <th> R$/{{popParam?.GNVPrize}} m³</th>
+    </tr>
+  </tbody>
+</table>

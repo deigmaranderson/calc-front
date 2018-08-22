@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CalcService } from './car-economy-calc/services/calc-service';
 import { CompareComponent } from './car-economy-calc/components/compare/compare.component';
 import { CalculatorsRoutingModule } from './calculators-routing.module';
+import { FuelEconomyService } from './fuel-economy-calc/services/fuel-economy.service';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { CalculatorsRoutingModule } from './calculators-routing.module';
   ],
   declarations: [CarEconomyCalcComponent, FuelEconomyCalcComponent, CompareComponent],
   exports: [CarEconomyCalcComponent, FuelEconomyCalcComponent, CompareComponent],
-  providers: [CalcService]
+  providers: [CalcService, FuelEconomyService]
 })
 export class CalculatorsModule { }

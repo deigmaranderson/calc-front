@@ -6,3 +6,26 @@
     border-radius: 25px;
     color: black;
 }
+
+.display-result {
+    height: 40px;
+    margin-top: 10px;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.yellow {
+    background: #fd0;
+}
+
+.green {
+    background: greenyellow;
+}
+
+.card-header img {
+    margin:  0 auto;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
