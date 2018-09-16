@@ -143,9 +143,9 @@ export class FuelEconomyCalcComponent implements OnInit {
 
     const popFinalGain = gainMounthPopWithoutTax - (fuelCost + mounthPopTax);
     this.popValue = new Gain();
-    this.popValue.finalGain = popFinalGain;
-    this.popValue.fuelCost = fuelCost;
-    this.popValue.gainYear = popFinalGain * 12;
+    this.popValue.finalGain = Math.round(popFinalGain);
+    this.popValue.fuelCost = Math.round(fuelCost);
+    this.popValue.gainYear = Math.round(popFinalGain * 12);
     if (selectedFuel.length > 0) {
       this.popValue.GNVKitGain = selectedFuel[0].description === 'GNV' ? 0
         : fuelCost - this.calcFuel(travelDistancePop,
@@ -153,11 +153,11 @@ export class FuelEconomyCalcComponent implements OnInit {
     } else {
       this.popValue.GNVKitGain = 0;
     }
-    this.popValue.mounthWithoutTax = gainMounthPopWithoutTax;
-    this.popValue.tax = mounthPopTax;
+    this.popValue.mounthWithoutTax = Math.round(gainMounthPopWithoutTax);
+    this.popValue.tax = Math.round(mounthPopTax);
 
     // workOneMoreHour
-    this.popValue.workMoreHourGain = this.calcOneMoreHour();
+    this.popValue.workMoreHourGain = Math.round(this.calcOneMoreHour());
     this.popValue.type = 'pop';
 
     this.fuelEconomyService.saveCalc(this.popValue);
@@ -197,9 +197,9 @@ export class FuelEconomyCalcComponent implements OnInit {
     }
     const UberFinalGain = gainMounthUberWithoutTax - (fuelCostUber + mounthUberTax);
     this.uberValue = new Gain();
-    this.uberValue.finalGain = UberFinalGain;
-    this.uberValue.fuelCost = fuelCostUber;
-    this.uberValue.gainYear = UberFinalGain * 12;
+    this.uberValue.finalGain = Math.round(UberFinalGain);
+    this.uberValue.fuelCost = Math.round(fuelCostUber);
+    this.uberValue.gainYear = Math.round(UberFinalGain * 12);
     if (selectedFuelUber.length > 0) {
       this.uberValue.GNVKitGain = selectedFuelUber[0].description === 'GNV' ? 0
         : fuelCostUber - this.calcFuel(travelDistanceUber,
@@ -207,8 +207,8 @@ export class FuelEconomyCalcComponent implements OnInit {
     } else {
       this.uberValue.GNVKitGain = 0;
     }
-    this.uberValue.mounthWithoutTax = gainMounthUberWithoutTax;
-    this.uberValue.tax = mounthUberTax;
+    this.uberValue.mounthWithoutTax = Math.round(gainMounthUberWithoutTax);
+    this.uberValue.tax = Math.round(mounthUberTax);
     this.uberValue.workMoreHourGain = 0;
     this.uberValue.type = 'uber';
 
