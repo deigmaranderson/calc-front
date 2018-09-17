@@ -8,6 +8,7 @@ import { CalculatorsModule } from './calculators/calculators.module';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { CurrencyFormatPipe } from './shared/pipe/currency-format.pipe';
 
 
 @NgModule({

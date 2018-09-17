@@ -68,23 +68,23 @@
   <tbody>
     <tr>
       <th>Ganhos no mês (Sem taxas):</th>
-      <td>{{popValue?.mounthWithoutTax}}</td>
-      <td>{{uberValue?.mounthWithoutTax}}</td>
+      <td>{{popValue?.mounthWithoutTax  | currencyFormat:'BRL':'currency_symbol':true}}</td>
+      <td>{{uberValue?.mounthWithoutTax  | currencyFormat:'BRL':'currency_symbol':true}}</td>
     </tr>
     <tr>
       <th>Quanto você paga de TAXA:</th>
-      <td>{{popValue?.tax}}</td>
-      <td>{{uberValue?.tax}}</td>
+      <td>{{popValue?.tax  | currencyFormat:'BRL':'currency_symbol':true}}</td>
+      <td>{{uberValue?.tax  | currencyFormat:'BRL':'currency_symbol':true}}</td>
     </tr>
     <tr>
       <th>Despesas com combustível</th>
-      <td>{{popValue?.fuelCost}}</td>
-      <td>{{uberValue?.fuelCost}}</td>
+      <td>{{popValue?.fuelCost  | currencyFormat:'BRL':'currency_symbol':true}}</td>
+      <td>{{uberValue?.fuelCost  | currencyFormat:'BRL':'currency_symbol':true}}</td>
     </tr>
     <tr>
       <th>líquido no final do mês:</th>
-      <td>{{popValue?.finalGain}}</td>
-      <td>{{uberValue?.finalGain}}</td>
+      <td>{{popValue?.finalGain  | currencyFormat:'BRL':'currency_symbol':true}}</td>
+      <td>{{uberValue?.finalGain  | currencyFormat:'BRL':'currency_symbol':true}}</td>
     </tr>
   </tbody>
 </table>
@@ -92,7 +92,7 @@
 <div class="display-result yellow d-flex">
   <div class="w-100 bg-green" style="width: 18rem;">
     <div class="text-left pl-2">
-      No mês, você ganha R$ {{popValue?.finalGain - uberValue?.finalGain}} A MAIS na 99, trabalhando o mesmo tempo!
+      No mês, você ganha {{popValue?.finalGain - uberValue?.finalGain | currencyFormat:'BRL':'currency_symbol':true}} A MAIS na 99, trabalhando o mesmo tempo!
     </div>
   </div>
 </div>
@@ -100,7 +100,7 @@
 <div class="display-result yellow d-flex">
   <div class="w-100 bg-green" style="width: 18rem;">
     <div class="text-left pl-2">
-      No ano, você ganha R$ {{popValue?.gainYear - uberValue?.gainYear}} A MAIS na 99, trabalhando o mesmo tempo!
+      No ano, você ganha {{popValue?.gainYear - uberValue?.gainYear | currencyFormat:'BRL':'currency_symbol':true}} A MAIS na 99, trabalhando o mesmo tempo!
     </div>
   </div>
 </div>
@@ -108,7 +108,7 @@
 <div class="display-result yellow d-flex">
   <div class="w-100 bg-green" style="width: 18rem;">
     <div class="text-left pl-2">
-      O quê dá pra fazer com R$ {{popValue?.gainYear - uberValue?.gainYear}} a mais no ano? Férias, etc (pensar em algumas coisas)
+      O quê dá pra fazer com {{popValue?.gainYear - uberValue?.gainYear | currencyFormat:'BRL':'currency_symbol':true}} a mais no ano? Férias, etc (pensar em algumas coisas)
     </div>
   </div>
 </div>
@@ -116,7 +116,7 @@
 <div class="display-result yellow d-flex">
   <div class="w-100 bg-green" style="width: 18rem;">
     <div class="text-left pl-2">
-        Se você trabalhar 1 hora a mais por dia (ou 1 dia mais na semana), você vai ganhar R$ {{popValue?.workMoreHourGain - popValue?.finalGain}} reais líquidos a mais no final do mês
+        Se você trabalhar 1 hora a mais por dia (ou 1 dia mais na semana), você vai ganhar {{popValue?.workMoreHourGain - popValue?.finalGain | currencyFormat:'BRL':'currency_symbol':true}} reais líquidos a mais no final do mês
     </div>
   </div>
 </div>
@@ -124,7 +124,7 @@
 <div class="display-result yellow d-flex">
     <div class="w-100 bg-green" style="width: 18rem;">
       <div class="text-left pl-2">
-          Se você instalar o KIT gás no seu carro, você iria ganhar R$ {{popValue?.GNVKitGain}} reais líquidos a mais no final do mês
+          Se você instalar o KIT gás no seu carro, você iria ganhar {{popValue?.GNVKitGain | currencyFormat:'BRL':'currency_symbol':true}} reais líquidos a mais no final do mês
       </div>
     </div>
   </div>
