@@ -1,0 +1,225 @@
+<div class="container">
+  <form [formGroup]="formCities">
+    <div class="row">
+      <div class="col-md-12">
+        <h3>Select or create new City</h3>
+        <div class="form-group">
+          <div *ngIf="!showCreate">
+            <select id="form_fieldCities" name="fieldCities" class="form-control" placeholder="fieldCities" 
+            formControlName="fieldCities" required="required">
+              <option *ngFor="let city of cities" [value]="city.id">
+                  {{city.description}}</option>
+            </select>
+          </div>
+          <div *ngIf="showCreate">
+              <label for="form_createCity">Create new city</label>
+              <input id="form_createCity" type="createCity" name="createCity" class="form-control" placeholder="create City" formControlName="createCity"
+                required="required" data-error="createCity is required.">
+              <div class="help-block with-errors"></div>
+            <!-- Trigger button -->
+<button type="button" *ngIf="showCreate" class="btn btn-success btn-send">Save City</button>
+<button type="button" *ngIf="showCreate" class="btn btn-warning btn-send" (click)="showCreateCity()">Cancel</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12">
+<!-- Trigger button -->
+<button type="button" *ngIf="!showCreate" class="btn btn-warning btn-send" (click)="showCreateCity()">Create NEW</button>
+      </div>
+    </div>
+  </form>
+
+  <div class="clearfix"></div>
+  <hr>
+  <div class="row">
+      <form [formGroup]="formCityParam">
+          <div class="controls">
+              <div class="col-sm-4">
+                <h3>City Params</h3>
+                <div class="form-group">
+                    <label for="form_baseTax">baseTax</label>
+                    <input id="form_baseTax" type="baseTax" name="baseTax" class="form-control" placeholder="baseTax" formControlName="baseTax"
+                      required="required" data-error="baseTax is required.">
+                    <div class="help-block with-errors"></div>
+                    
+                      <label for="form_distanceTax">distanceTax</label>
+                      <input id="form_distanceTax" type="distanceTax" name="distanceTax" class="form-control" placeholder="distanceTax" formControlName="distanceTax"
+                        required="required" data-error="distanceTax is required.">
+                      <div class="help-block with-errors"></div>
+                  
+                    <label for="form_timeTax">timeTax</label>
+                    <input id="form_timeTax" type="timeTax" name="timeTax" class="form-control" placeholder="timeTax" formControlName="timeTax"
+                      required="required" data-error="timeTax is required.">
+                    <div class="help-block with-errors"></div>
+      
+                    <label for="form_cityTax">cityTax</label>
+                    <input id="form_cityTax" type="cityTax" name="cityTax" class="form-control" placeholder="cityTax" formControlName="cityTax"
+                      required="required" data-error="cityTax is required.">
+                    <div class="help-block with-errors"></div>
+                  
+                    <label for="form_triggerSuperKM">triggerSuperKM</label>
+                    <input id="form_triggerSuperKM" type="triggerSuperKM" name="triggerSuperKM" class="form-control" placeholder="triggerSuperKM" formControlName="triggerSuperKM"
+                      required="required" data-error="triggerSuperKM is required.">
+                    <div class="help-block with-errors"></div>
+                  
+                    <label for="form_superKMTax">superKMTax</label>
+                    <input id="form_superKMTax" type="superKMTax" name="superKMTax" class="form-control" placeholder="superKMTax" formControlName="superKMTax"
+                      required="required" data-error="superKMTax is required.">
+                    <div class="help-block with-errors"></div>
+                  
+                    <label for="form_citySpeed">citySpeed</label>
+                    <input id="form_citySpeed" type="citySpeed" name="citySpeed" class="form-control" placeholder="citySpeed" formControlName="citySpeed"
+                      required="required" data-error="citySpeed is required.">
+                    <div class="help-block with-errors"></div>
+                  
+                    <label for="form_publicTranpPass">publicTranpPass</label>
+                    <input id="form_publicTranpPass" type="publicTranpPass" name="publicTranpPass" class="form-control" placeholder="publicTranpPass" formControlName="publicTranpPass"
+                      required="required" data-error="publicTranpPass is required.">
+                    <div class="help-block with-errors"></div>
+                  
+                    <label for="form_dynamicPrice">dynamicPrice</label>
+                    <input id="form_dynamicPrice" type="dynamicPrice" name="dynamicPrice" class="form-control" placeholder="dynamicPrice" formControlName="dynamicPrice"
+                      required="required" data-error="dynamicPrice is required.">
+                    <div class="help-block with-errors"></div>
+                </div>
+              </div>
+          </div>
+        </form>
+
+  <form [formGroup]="formParamsPop">
+    <div class="controls">
+        <div class="col-sm-4">
+          <h3>City Params POP</h3>
+          <div class="form-group">
+              <label for="form_alcoholPrize">Driving Distance</label>
+              <input id="form_alcoholPrize" type="alcoholPrize" name="alcoholPrize" class="form-control" placeholder="Driving Distance" formControlName="alcoholPrize"
+                required="required" data-error="Driving Distance is required.">
+              <div class="help-block with-errors"></div>
+              
+                <label for="form_gasolinePrize">gasolinePrize</label>
+                <input id="form_gasolinePrize" type="gasolinePrize" name="gasolinePrize" class="form-control" placeholder="gasolinePrize" formControlName="gasolinePrize"
+                  required="required" data-error="gasolinePrize is required.">
+                <div class="help-block with-errors"></div>
+            
+              <label for="form_travelTime">travelTime</label>
+              <input id="form_travelTime" type="travelTime" name="travelTime" class="form-control" placeholder="travelTime" formControlName="travelTime"
+                required="required" data-error="travelTime is required.">
+              <div class="help-block with-errors"></div>
+
+              <label for="form_GNVPrize">GNVPrize</label>
+              <input id="form_GNVPrize" type="GNVPrize" name="GNVPrize" class="form-control" placeholder="GNVPrize" formControlName="GNVPrize"
+                required="required" data-error="GNVPrize is required.">
+              <div class="help-block with-errors"></div>
+            
+              <label for="form_PAX">PAX</label>
+              <input id="form_PAX" type="PAX" name="PAX" class="form-control" placeholder="PAX" formControlName="PAX"
+                required="required" data-error="PAX is required.">
+              <div class="help-block with-errors"></div>
+            
+              <label for="form_travelDistance">travelDistance</label>
+              <input id="form_travelDistance" type="travelDistance" name="travelDistance" class="form-control" placeholder="travelDistance" formControlName="travelDistance"
+                required="required" data-error="travelDistance is required.">
+              <div class="help-block with-errors"></div>
+            
+              <label for="form_TPH">TPH</label>
+              <input id="form_TPH" type="TPH" name="TPH" class="form-control" placeholder="TPH" formControlName="TPH"
+                required="required" data-error="TPH is required.">
+              <div class="help-block with-errors"></div>
+            
+              <label for="form_ASP">ASP</label>
+              <input id="form_ASP" type="ASP" name="ASP" class="form-control" placeholder="ASP" formControlName="ASP"
+                required="required" data-error="ASP is required.">
+              <div class="help-block with-errors"></div>
+            
+              <label for="form_parkingCost">parkingCost</label>
+              <input id="form_parkingCost" type="parkingCost" name="parkingCost" class="form-control" placeholder="parkingCost" formControlName="parkingCost"
+                required="required" data-error="parkingCost is required.">
+              <div class="help-block with-errors"></div>
+            
+              <label for="form_publicTransportIntegration">public Transport Integration</label>
+              <input id="form_publicTransportIntegration" type="publicTransportIntegration" name="publicTransportIntegration" class="form-control" placeholder="public Transport Integration" formControlName="publicTransportIntegration"
+                required="required" data-error="public Transport Integration is required.">
+              <div class="help-block with-errors"></div>
+
+            <label for="form_divingDistanceIntegration">Driving Distance Integration</label>
+            <input id="form_divingDistanceIntegration" type="divingDistanceIntegration" name="divingDistanceIntegration" class="form-control" placeholder="Driving Distance" formControlName="divingDistanceIntegration"
+              required="required" data-error="Driving Distance Integration is required.">
+            <div class="help-block with-errors"></div>
+          </div>
+        </div>
+    </div>
+  </form>
+
+  <form [formGroup]="formParamsUber">
+      <div class="controls">
+          <div class="col-sm-4">
+            <h3>City Param UBER</h3>
+            <div class="form-group">
+                <label for="form_alcoholPrize">Driving Distance</label>
+                <input id="form_alcoholPrize" type="alcoholPrize" name="alcoholPrize" class="form-control" placeholder="Driving Distance" formControlName="alcoholPrize"
+                  required="required" data-error="Driving Distance is required.">
+                <div class="help-block with-errors"></div>
+                
+                  <label for="form_gasolinePrize">gasolinePrize</label>
+                  <input id="form_gasolinePrize" type="gasolinePrize" name="gasolinePrize" class="form-control" placeholder="gasolinePrize" formControlName="gasolinePrize"
+                    required="required" data-error="gasolinePrize is required.">
+                  <div class="help-block with-errors"></div>
+              
+                <label for="form_travelTime">travelTime</label>
+                <input id="form_travelTime" type="travelTime" name="travelTime" class="form-control" placeholder="travelTime" formControlName="travelTime"
+                  required="required" data-error="travelTime is required.">
+                <div class="help-block with-errors"></div>
+  
+                <label for="form_GNVPrize">GNVPrize</label>
+                <input id="form_GNVPrize" type="GNVPrize" name="GNVPrize" class="form-control" placeholder="GNVPrize" formControlName="GNVPrize"
+                  required="required" data-error="GNVPrize is required.">
+                <div class="help-block with-errors"></div>
+              
+                <label for="form_PAX">PAX</label>
+                <input id="form_PAX" type="PAX" name="PAX" class="form-control" placeholder="PAX" formControlName="PAX"
+                  required="required" data-error="PAX is required.">
+                <div class="help-block with-errors"></div>
+              
+                <label for="form_travelDistance">travelDistance</label>
+                <input id="form_travelDistance" type="travelDistance" name="travelDistance" class="form-control" placeholder="travelDistance" formControlName="travelDistance"
+                  required="required" data-error="travelDistance is required.">
+                <div class="help-block with-errors"></div>
+              
+                <label for="form_TPH">TPH</label>
+                <input id="form_TPH" type="TPH" name="TPH" class="form-control" placeholder="TPH" formControlName="TPH"
+                  required="required" data-error="TPH is required.">
+                <div class="help-block with-errors"></div>
+              
+                <label for="form_ASP">ASP</label>
+                <input id="form_ASP" type="ASP" name="ASP" class="form-control" placeholder="ASP" formControlName="ASP"
+                  required="required" data-error="ASP is required.">
+                <div class="help-block with-errors"></div>
+              
+                <label for="form_parkingCost">parkingCost</label>
+                <input id="form_parkingCost" type="parkingCost" name="parkingCost" class="form-control" placeholder="parkingCost" formControlName="parkingCost"
+                  required="required" data-error="parkingCost is required.">
+                <div class="help-block with-errors"></div>
+              
+                <label for="form_publicTransportIntegration">public Transport Integration</label>
+                <input id="form_publicTransportIntegration" type="publicTransportIntegration" name="publicTransportIntegration" class="form-control" placeholder="public Transport Integration" formControlName="publicTransportIntegration"
+                  required="required" data-error="public Transport Integration is required.">
+                <div class="help-block with-errors"></div>
+  
+              <label for="form_divingDistanceIntegration">Driving Distance Integration</label>
+              <input id="form_divingDistanceIntegration" type="divingDistanceIntegration" name="divingDistanceIntegration" class="form-control" placeholder="Driving Distance" formControlName="divingDistanceIntegration"
+                required="required" data-error="Driving Distance Integration is required.">
+              <div class="help-block with-errors"></div>
+            </div>
+          </div>
+      </div>
+  </form>
+</div>
+<hr>
+  <div class="row">
+    <div class="controls">
+      <div class="col-md-12">
+        <button type="button" *ngIf="!showCreate" class="btn btn-warning btn-send">SAVE ALL DATA</button>
+      </div>
+    </div>
+  </div>
+</div>

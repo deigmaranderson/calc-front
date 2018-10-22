@@ -7,7 +7,7 @@ import { CalcService } from './car-economy-calc/services/calc-service';
 import { CompareComponent } from './car-economy-calc/components/compare/compare.component';
 import { CalculatorsRoutingModule } from './calculators-routing.module';
 import { FuelEconomyService } from './fuel-economy-calc/services/fuel-economy.service';
-import { CurrencyFormatPipe } from '../shared/pipe/currency-format.pipe';
+import { AdministratorComponent } from './car-economy-calc/admin/administrator.component';
 
 @NgModule({
   imports: [
@@ -16,7 +16,7 @@ import { CurrencyFormatPipe } from '../shared/pipe/currency-format.pipe';
     ReactiveFormsModule,
     CalculatorsRoutingModule
   ],
-  declarations: [CarEconomyCalcComponent, FuelEconomyCalcComponent, CompareComponent, CurrencyFormatPipe],
+  declarations: [CarEconomyCalcComponent, FuelEconomyCalcComponent, CompareComponent, AdministratorComponent],
   exports: [CarEconomyCalcComponent, FuelEconomyCalcComponent, CompareComponent],
   providers: [CalcService, FuelEconomyService]
 })

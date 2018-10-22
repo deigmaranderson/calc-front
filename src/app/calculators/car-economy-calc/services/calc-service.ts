@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CarEconomy } from '../models/car-economy';
-import { CalculatorParams } from '../models/calculator-params';
+import { CalculatorParams, CityParams } from '../models/calculator-params';
 import { Http } from '@angular/http';
 import { POPCost } from '../models/pop-cost';
 import { CarCost } from '../models/car-cost';
 import { Field } from '../../../shared/models/field';
 import { Observable } from 'rxjs/Observable';
+import { City, CityParamsPop, CityParamsUber } from '../models/auxiliar';
 
 @Injectable()
 export class CalcService {
@@ -89,8 +90,32 @@ export class CalcService {
         return this.http.get('http://localhost:3000/field-city');
     }
 
+    postCities(data: City) {
+        return this.http.post('http://localhost:3000/field-city', data);
+    }
+
     getCityParam(id: string) {
         return this.http.get('http://localhost:3000/city-params/' + id);
+    }
+
+    postCityParams(data: CityParams) {
+        return this.http.post('http://localhost:3000/city-params/', data );
+    }
+
+    postCityParamsPop(data: CityParamsPop) {
+        return this.http.post('http://localhost:3000/city-params-pop/', data );
+    }
+
+    getCityParamPop(id: string) {
+        return this.http.get('http://localhost:3000/city-params-pop/' + id);
+    }
+
+    postCityParamsUber(data: CityParamsUber) {
+        return this.http.post('http://localhost:3000/city-params-uber/', data );
+    }
+
+    getCityParamUber(id: string) {
+        return this.http.get('http://localhost:3000/city-params-uber/' + id);
     }
 
 }

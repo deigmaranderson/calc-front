@@ -102,8 +102,6 @@ export class CarEconomyCalcComponent implements OnInit {
       TOTAL_COST_POP,
       TOTAL_COST_PUBLIC_TRANSPORT
     );
-    this.costOurCar.total = Math.round(this.costOurCar.total);
-    this.costPop.total = Math.round(this.costPop.total);
 
     this.calcService.saveCalcPopCost(this.costPop).subscribe((val) => {});
     this.calcService.saveCalcCarCost(this.costOurCar).subscribe((val) => {});

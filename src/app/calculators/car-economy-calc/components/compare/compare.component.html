@@ -33,21 +33,21 @@
 <div class="display-result yellow d-flex">
     <div class="w-100 bg-green" style="width: 18rem;">
         <div class="text-center">
-            Gasto com seu carro próprio: {{costOurCar?.total  | currencyFormat:'BRL':'currency_symbol':true}} anualmente
+            Gasto com seu carro próprio: R${{costOurCar?.total}} anualmente
         </div>
       </div>
 </div>
 <div class="display-result yellow d-flex">
     <div class="w-100 bg-green" style="width: 18rem;">
         <div class="text-center">
-            Gasto caso substituísse por 99POP: {{costPop?.total  | currencyFormat:'BRL':'currency_symbol':true}} anualmente
+            Gasto caso substituísse por 99POP: R${{costPop?.total}} anualmente
         </div>
       </div>
 </div>
 <div class="display-result d-flex green">
     <div class="w-100 bg-green" style="width: 18rem;">
         <div class="text-center">
-            Economia anual de {{costOurCar?.total - costPop?.total  | currencyFormat:'BRL':'currency_symbol':true}}
+            Economia anual de R${{costOurCar?.total - costPop?.total}}
         </div>
       </div>
 </div>
